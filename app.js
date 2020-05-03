@@ -122,16 +122,16 @@ class App {
     return employee;
   }
 
-  saveEmployeeToDb(employee) {
+  saveEmployee(employee) {
     switch (employee.getRole().toLowerCase()) {
       case "manager":
-        this.db.manager = employee;
+        this.manager = employee;
         break;
       case "engineer":
-        this.db.engineers.push(employee);
+        this.engineers.push(employee);
         break;
       case "intern":
-        this.db.interns.push(employee);
+        this.interns.push(employee);
         break;
       default:
         return display404(employee);
@@ -139,13 +139,13 @@ class App {
   }
 }
   
-    if (this.db.manager) {
-      managerProfile = new ManagerProfile(this.db.manager);
+    if (this.manager) {
+      managerProfile = new ManagerProfile(this.manager);
       managerProfile = managerProfile.createProfile();
     }
 
-    if (this.db.engineers) {
-      for (const engineer of this.db.engineers) {
+    if (this.engineers) {
+      for (const engineer of this.engineers) {
         let engineerProfile = new EngineerProfile(engineer);
         engineerProfile = engineerProfile.createProfile();
 
